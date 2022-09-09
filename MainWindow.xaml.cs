@@ -27,7 +27,7 @@ namespace wpf_structLayout
 
         private void tb_src_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-
+            string txt = tb_src.Text;
         }
 
         private void dg_output_Loaded(object sender, RoutedEventArgs e)
