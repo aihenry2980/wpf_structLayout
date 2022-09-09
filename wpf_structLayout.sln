@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wpf_structLayout", "wpf_structLayout.csproj", "{0FEF5940-B3B9-4729-90B3-FCD6616CB779}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0FEF5940-B3B9-4729-90B3-FCD6616CB779}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FEF5940-B3B9-4729-90B3-FCD6616CB779}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FEF5940-B3B9-4729-90B3-FCD6616CB779}.Debug|x64.ActiveCfg = Debug|x64
+		{0FEF5940-B3B9-4729-90B3-FCD6616CB779}.Debug|x64.Build.0 = Debug|x64
+		{0FEF5940-B3B9-4729-90B3-FCD6616CB779}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FEF5940-B3B9-4729-90B3-FCD6616CB779}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FEF5940-B3B9-4729-90B3-FCD6616CB779}.Release|x64.ActiveCfg = Release|x64
+		{0FEF5940-B3B9-4729-90B3-FCD6616CB779}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E99EB710-3BFF-4BCD-B602-C0011B8D78A8}
+	EndGlobalSection
+EndGlobal
