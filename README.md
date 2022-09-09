@@ -1,5 +1,6 @@
 # wpf_structLayout
 
-PDB File -> llvm_pdbutil -> TextFile -> WPF Visualization
+[PDB File] -> llvm_pdbutil -> [TextFile] -> WPF Visualization
 
-VS2022
+OS: Windows
+Developed on VS2022

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,11 +24,6 @@ namespace wpf_structLayout
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void tb_src_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            string txt = tb_src.Text;
         }
 
         private void dg_output_Loaded(object sender, RoutedEventArgs e)
@@ -60,6 +56,19 @@ namespace wpf_structLayout
                 column.Binding = new Binding(label.Replace(' ', '_'));
 
                 dg_output.Columns.Add(column);
+            }
+        }
+
+        private void bt_analyze_Click(object sender, RoutedEventArgs e)
+        {
+            var str = tb_pdbfile.Text;
+            if (File.Exists(@str))
+            {
+                using (StreamWriter file = new StreamWriter("mypics.txt"))
+                {
+                    p.StandardOutput.CopyTo(file);
+                }
+                System.Diagnostics.Process.Start("llvm-pdbutil.exe", "pretty -all "+str+" > output.txt");
             }
         }
     }

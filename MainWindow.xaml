@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBox x:Name="tb_src" HorizontalAlignment="Left" Margin="76,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="642" Height="22" DataContextChanged="tb_src_DataContextChanged" AcceptsReturn="True"/>
-        <Label x:Name="label" Content="PDB File" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_pdbfile" HorizontalAlignment="Left" Margin="76,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="642" Height="22" AcceptsReturn="True"/>
+        <Label x:Name="label_pdb" Content="PDB File" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label_Copy" Content="Detected Structs" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top"/>
         <DataGrid x:Name="dg_output" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="405,89,0,0" Loaded="dg_output_Loaded"/>
-        <Button x:Name="bt_analyze" Content="Analyze" HorizontalAlignment="Left" Margin="734,13,0,0" VerticalAlignment="Top" Width="56"/>
+        <Button x:Name="bt_analyze" Content="Analyze" HorizontalAlignment="Left" Margin="734,13,0,0" VerticalAlignment="Top" Width="56" Click="bt_analyze_Click"/>
 
     </Grid>
 </Window>
