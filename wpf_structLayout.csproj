@@ -8,4 +8,11 @@
     <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="prj_generatePDB\**" />
+    <EmbeddedResource Remove="prj_generatePDB\**" />
+    <None Remove="prj_generatePDB\**" />
+    <Page Remove="prj_generatePDB\**" />
+  </ItemGroup>
+
 </Project>

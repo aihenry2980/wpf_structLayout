@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -61,15 +62,73 @@ namespace wpf_structLayout
 
         private void bt_analyze_Click(object sender, RoutedEventArgs e)
         {
-            var str = tb_pdbfile.Text;
+            const string outputFile = "output.txt";
+            bool bSuccess = ConvertToText(tb_pdbfile.Text, outputFile);
+            if (!bSuccess)
+            {
+                MessageBox.Show("pdb to text conversion failed!");
+                return;
+            }
+
+
+        }
+
+        private bool ConvertToText(string str, string outputFile)
+        {
+            if (!str.EndsWith(".pdb"))
+            {
+                MessageBox.Show("not a pdb file!");
+                return false;
+            }
+
             if (File.Exists(@str))
             {
-                using (StreamWriter file = new StreamWriter("mypics.txt"))
+                if (File.Exists(outputFile))
                 {
-                    p.StandardOutput.CopyTo(file);
+                    File.Delete(outputFile);
                 }
-                System.Diagnostics.Process.Start("llvm-pdbutil.exe", "pretty -all "+str+" > output.txt");
+
+                using (StreamWriter f = new StreamWriter(outputFile))
+                {
+                    Process p = new Process();
+                    p.StartInfo.UseShellExecute = false;
+                    p.StartInfo.RedirectStandardOutput = true;
+                    p.StartInfo.FileName = "llvm-pdbutil.exe";
+                    p.StartInfo.Arguments = "pretty -classes " + str;
+                    // p.StandardOutput.copyto
+                    p.Start();
+
+                    f.WriteLine(p.StandardOutput.ReadToEnd());
+                    p.WaitForExit();
+                }
+
+                if (File.Exists(outputFile))
+                    return true;
             }
+            return false;
+        }
+
+        private void tb_pdbfile_PreviewDragOver(object sender, DragEventArgs e)
+        {
+            e.Effects = DragDropEffects.All;
+            e.Handled = true;
+        }
+
+        private void tb_pdbfile_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effects = DragDropEffects.Copy;
+        }
+
+        private void tb_pdbfile_Drop(object sender, DragEventArgs e)
+        {
+            string[] fileloadup = (string[])e.Data.GetData(DataFormats.FileDrop);//Get the filename including path
+            tb_pdbfile.Text = fileloadup[0];//Load data to textBox
+            e.Handled = true;//This is file being dropped not copied text so we handle it
+        }
+
+        private void tb_pdbfile_Loaded(object sender, RoutedEventArgs e)
+        {
+            tb_pdbfile.Text = @"C:\Users\jxin\source\repos\CPP_StructLayout\Debug\CPP_StructLayout.pdb";
         }
     }
 }
