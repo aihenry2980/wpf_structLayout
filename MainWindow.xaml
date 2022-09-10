@@ -11,7 +11,8 @@
         <Label x:Name="label_pdb" Content="PDB File" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label_Copy" Content="Detected Structs" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top"/>
         <DataGrid x:Name="dg_output" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="395,79,10,10" Loaded="dg_output_Loaded"/>
-        <Button x:Name="bt_analyze" Content="Analyze" HorizontalAlignment="Left" Margin="718,13,0,0" VerticalAlignment="Top" Width="56" Click="bt_analyze_Click" FontStretch="Medium" FontFamily="Consolas"/>
+        <Button x:Name="bt_analyze" Content="Analyze" HorizontalAlignment="Left" Margin="716,11,0,0" VerticalAlignment="Top" Width="63" Click="bt_analyze_Click" FontStretch="Medium" FontFamily="Consolas" Height="23" BorderBrush="#FFD91212" Background="#FFE4E908" Foreground="#FFE20E0E" FontWeight="Bold"/>
+        <DataGrid x:Name="dg_structList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,79,470,10" Loaded="dg_structList_Loaded"/>
 
     </Grid>
 </Window>

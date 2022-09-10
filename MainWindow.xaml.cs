@@ -70,7 +70,32 @@ namespace wpf_structLayout
                 return;
             }
 
+            Analyze(outputFile);
 
+        }
+
+        private void Analyze(string outputFile)
+        {
+            if (!File.Exists(outputFile))
+            {
+                MessageBox.Show("no text file to analyze");
+                return;
+            }
+
+            using(StreamReader sr = new StreamReader(outputFile))
+            {
+                UpdateStructList(sr);
+            }
+
+        }
+
+        private void UpdateStructList(StreamReader sr)
+        {
+            while (! sr.EndOfStream)
+            {
+                var line = sr.ReadLine();
+
+            }
         }
 
         private bool ConvertToText(string str, string outputFile)
@@ -128,7 +153,26 @@ namespace wpf_structLayout
 
         private void tb_pdbfile_Loaded(object sender, RoutedEventArgs e)
         {
-            tb_pdbfile.Text = @"C:\Users\jxin\source\repos\CPP_StructLayout\Debug\CPP_StructLayout.pdb";
+            tb_pdbfile.Text = @"C:\Users\jxin\source\repos\wpf_structLayout\Debug\CPP_StructLayout.pdb";
+        }
+
+        private void dg_structList_AddRow(string num, string name, string size)
+        {
+            string[] labels = new string[] {
+                num, name, size,
+            };
+
+            foreach (string label in labels)
+            {
+                DataGridTextColumn column = new DataGridTextColumn();
+                column.Header = label;
+                dg_structList.Columns.Add(column);
+            }
+        }
+
+        private void dg_structList_Loaded(object sender, RoutedEventArgs e)
+        {
+            dg_structList_AddRow("#", "Struct Name", "Size");
         }
     }
 }
